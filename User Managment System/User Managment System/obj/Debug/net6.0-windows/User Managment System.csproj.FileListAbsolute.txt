@@ -1,0 +1,30 @@
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User Managment System.csproj.AssemblyReference.cache
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User_Managment_System.Forms.Login.resources
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User_Managment_System.Main.resources
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User_Managment_System.Properties.Resources.resources
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User Managment System.csproj.GenerateResource.cache
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User Managment System.GeneratedMSBuildEditorConfig.editorconfig
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User Managment System.AssemblyInfoInputs.cache
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User Managment System.AssemblyInfo.cs
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User Managment System.csproj.CoreCompileInputs.cache
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\bin\Debug\net6.0-windows\User Managment System.exe
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\bin\Debug\net6.0-windows\User Managment System.deps.json
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\bin\Debug\net6.0-windows\User Managment System.runtimeconfig.json
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\bin\Debug\net6.0-windows\User Managment System.dll
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\bin\Debug\net6.0-windows\User Managment System.pdb
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\bin\Debug\net6.0-windows\Google.Protobuf.dll
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\bin\Debug\net6.0-windows\MySql.Data.dll
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\bin\Debug\net6.0-windows\Ubiety.Dns.Core.dll
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\bin\Debug\net6.0-windows\ZstdNet.dll
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User Managment System.csproj.CopyComplete
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User Managment System.dll
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\refint\User Managment System.dll
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User Managment System.pdb
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User Managment System.genruntimeconfig.cache
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\ref\User Managment System.dll
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User_Managment_System.Forms.UserControlPanels.resources
+D:\Anwendungsentwicklung\UMS\User Managment System\User Managment System\obj\Debug\net6.0-windows\User_Managment_System.Forms.UserForm.resources
