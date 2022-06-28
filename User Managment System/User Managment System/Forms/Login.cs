@@ -23,21 +23,39 @@ namespace User_Managment_System.Forms
         public Login()
         {
             InitializeComponent();
+            if(Properties.Settings.Default.Username != String.Empty)
+            {
+                tBox_Username.Text = Properties.Settings.Default.Username;
+                cBox_Save_Username.Checked = Properties.Settings.Default.checkBox;
+                Properties.Settings.Default.SQLPassword = string.Empty;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private bool TryLogin()
         {
             Settings.Username = tBox_Username.Text;
-            //p = Classes.IO.Compute256(tBox_Password.Text);
-            Settings.Password = tBox_Password.Text;
-            Settings.DataSource = "localhost";
-            Settings.Port = "3306";
-            Settings.DBName = "UMS2";
+            Properties.Settings.Default.SQLPassword = tBox_Password.Text;
+
+            if (cBox_Save_Username.Checked)
+            {
+                Properties.Settings.Default.Username = tBox_Username.Text;
+                Properties.Settings.Default.checkBox = cBox_Save_Username.Checked;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.Username = string.Empty;
+                Properties.Settings.Default.checkBox = cBox_Save_Username.Checked;
+                Properties.Settings.Default.Save();
+            }
             return new MySqlDB().SQLLogin();
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
+
+            
             if(TryLogin())
             {
                 
@@ -53,6 +71,24 @@ namespace User_Managment_System.Forms
             {
                 MessageBox.Show("Error, Username or Password False!!!");
             }
+            MessageBox.Show(Properties.Settings.Default.SQLPassword);
+        }
+
+        private void cBox_See_Password_CheckedChanged(object sender, EventArgs e)
+        {
+            if(!cBox_See_Password.Checked)
+            {
+                tBox_Password.PasswordChar = '*';
+            }
+            else
+            {
+                tBox_Password.PasswordChar = '\0';
+            }
+        }
+
+        private void cBox_Save_Username_CheckedChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
