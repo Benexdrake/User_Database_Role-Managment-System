@@ -8,37 +8,47 @@ namespace User_Managment_System.Classes
         public List<Users> ReadUsers(string sql)
         {
             List<Users> users = null;
-            isLoggedIn = SQLLogin();
-            if (isLoggedIn)
+            try
             {
-                cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = sql;
-                cmd.ExecuteNonQuery();
-
-                reader = cmd.ExecuteReader();
-                if (reader.HasRows)
+                isLoggedIn = SQLLogin();
+                if (isLoggedIn)
                 {
-                    users = new List<Users>();
-                    while (reader.Read())
+                    cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = sql;
+                    cmd.ExecuteNonQuery();
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
                     {
-                        users.Add(
-                            new Users()
-                            {
-                                ID = reader.GetInt32("ID"),
-                                Email = reader.GetString("Email"),
-                                Firstname = reader.GetString("Firstname"),
-                                Lastname = reader.GetString("Lastname"),
-                                Information = reader.GetString("Information"),
-                                PicPath = reader.GetString("PicPath"),
-                                BirthDate = DateTime.Parse(reader.GetString("Birthdate")),
-                                RegisterDate = DateTime.Parse(reader.GetString("Register_Date")),
-                                Server = reader.GetInt32("Server_ID"),
-                                Role = reader.GetInt32("Roles_ID")
-                            });
+                        users = new List<Users>();
+                        while (reader.Read())
+                        {
+                            users.Add(
+                                new Users()
+                                {
+                                    ID = reader.GetInt32("ID"),
+                                    Email = reader.GetString("Email"),
+                                    Password = reader.GetString("Password"),
+                                    Firstname = reader.GetString("Firstname"),
+                                    Lastname = reader.GetString("Lastname"),
+                                    Available = reader.GetBoolean("Available"),
+                                    Information = reader.GetString("Information"),
+                                    PicPath = reader.GetString("PicPath"),
+                                    BirthDate = DateTime.Parse(reader.GetString("Birthdate")),
+                                    RegisterDate = DateTime.Parse(reader.GetString("Register_Date")),
+                                    Server = reader.GetInt32("Server_ID"),
+                                    Role = reader.GetInt32("Roles_ID")
+                                });
+                        }
                     }
                 }
             }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+            
             con.Close();
             return users;
         }

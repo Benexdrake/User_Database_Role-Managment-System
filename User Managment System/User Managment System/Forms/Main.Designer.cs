@@ -42,6 +42,7 @@
             this.btn_New_Database = new System.Windows.Forms.Button();
             this.btn_Database = new System.Windows.Forms.Button();
             this.panelUsers = new System.Windows.Forms.Panel();
+            this.btn_BlackList = new System.Windows.Forms.Button();
             this.btn_All_Users = new System.Windows.Forms.Button();
             this.btn_RegReq_User = new System.Windows.Forms.Button();
             this.btn_New_User = new System.Windows.Forms.Button();
@@ -50,12 +51,14 @@
             this.pBox_Avatar = new System.Windows.Forms.PictureBox();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.panelChild = new System.Windows.Forms.Panel();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.panelSideBar.SuspendLayout();
             this.panelRoles.SuspendLayout();
             this.panelDatabase.SuspendLayout();
             this.panelUsers.SuspendLayout();
             this.panelAvatar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBox_Avatar)).BeginInit();
+            this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSideBar
@@ -69,7 +72,7 @@
             this.panelSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideBar.Location = new System.Drawing.Point(0, 0);
             this.panelSideBar.Name = "panelSideBar";
-            this.panelSideBar.Size = new System.Drawing.Size(225, 760);
+            this.panelSideBar.Size = new System.Drawing.Size(225, 761);
             this.panelSideBar.TabIndex = 0;
             // 
             // btn_Logout
@@ -80,7 +83,7 @@
             this.btn_Logout.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Logout.Image = ((System.Drawing.Image)(resources.GetObject("btn_Logout.Image")));
             this.btn_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Logout.Location = new System.Drawing.Point(0, 700);
+            this.btn_Logout.Location = new System.Drawing.Point(0, 701);
             this.btn_Logout.Name = "btn_Logout";
             this.btn_Logout.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btn_Logout.Size = new System.Drawing.Size(225, 60);
@@ -97,7 +100,7 @@
             this.panelRoles.Controls.Add(this.btn_New_Role);
             this.panelRoles.Controls.Add(this.btn_Role);
             this.panelRoles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelRoles.Location = new System.Drawing.Point(0, 490);
+            this.panelRoles.Location = new System.Drawing.Point(0, 310);
             this.panelRoles.MaximumSize = new System.Drawing.Size(225, 240);
             this.panelRoles.MinimumSize = new System.Drawing.Size(225, 60);
             this.panelRoles.Name = "panelRoles";
@@ -178,7 +181,7 @@
             this.panelDatabase.Controls.Add(this.btn_New_Database);
             this.panelDatabase.Controls.Add(this.btn_Database);
             this.panelDatabase.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelDatabase.Location = new System.Drawing.Point(0, 430);
+            this.panelDatabase.Location = new System.Drawing.Point(0, 250);
             this.panelDatabase.MaximumSize = new System.Drawing.Size(225, 240);
             this.panelDatabase.MinimumSize = new System.Drawing.Size(225, 60);
             this.panelDatabase.Name = "panelDatabase";
@@ -254,17 +257,35 @@
             // 
             // panelUsers
             // 
+            this.panelUsers.Controls.Add(this.btn_BlackList);
             this.panelUsers.Controls.Add(this.btn_All_Users);
             this.panelUsers.Controls.Add(this.btn_RegReq_User);
             this.panelUsers.Controls.Add(this.btn_New_User);
             this.panelUsers.Controls.Add(this.btn_Users);
             this.panelUsers.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUsers.Location = new System.Drawing.Point(0, 190);
-            this.panelUsers.MaximumSize = new System.Drawing.Size(225, 240);
+            this.panelUsers.MaximumSize = new System.Drawing.Size(225, 300);
             this.panelUsers.MinimumSize = new System.Drawing.Size(225, 60);
             this.panelUsers.Name = "panelUsers";
-            this.panelUsers.Size = new System.Drawing.Size(225, 240);
+            this.panelUsers.Size = new System.Drawing.Size(225, 60);
             this.panelUsers.TabIndex = 1;
+            // 
+            // btn_BlackList
+            // 
+            this.btn_BlackList.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_BlackList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_BlackList.Image = ((System.Drawing.Image)(resources.GetObject("btn_BlackList.Image")));
+            this.btn_BlackList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_BlackList.Location = new System.Drawing.Point(0, 240);
+            this.btn_BlackList.Name = "btn_BlackList";
+            this.btn_BlackList.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btn_BlackList.Size = new System.Drawing.Size(225, 60);
+            this.btn_BlackList.TabIndex = 4;
+            this.btn_BlackList.Text = "   BlackList";
+            this.btn_BlackList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_BlackList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_BlackList.UseVisualStyleBackColor = false;
+            this.btn_BlackList.Click += new System.EventHandler(this.btn_BlackList_Click);
             // 
             // btn_All_Users
             // 
@@ -359,29 +380,42 @@
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelHeader.Controls.Add(this.btn_Refresh);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(225, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1107, 59);
+            this.panelHeader.Size = new System.Drawing.Size(1209, 43);
             this.panelHeader.TabIndex = 1;
             // 
             // panelChild
             // 
             this.panelChild.AutoScroll = true;
             this.panelChild.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChild.Location = new System.Drawing.Point(225, 59);
+            this.panelChild.Location = new System.Drawing.Point(225, 43);
             this.panelChild.Name = "panelChild";
-            this.panelChild.Size = new System.Drawing.Size(1107, 701);
+            this.panelChild.Size = new System.Drawing.Size(1209, 718);
             this.panelChild.TabIndex = 2;
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_Refresh.Image = ((System.Drawing.Image)(resources.GetObject("btn_Refresh.Image")));
+            this.btn_Refresh.Location = new System.Drawing.Point(1168, 0);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(41, 43);
+            this.btn_Refresh.TabIndex = 0;
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1332, 760);
+            this.ClientSize = new System.Drawing.Size(1434, 761);
             this.Controls.Add(this.panelChild);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panelSideBar);
+            this.MinimumSize = new System.Drawing.Size(1450, 800);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -391,6 +425,7 @@
             this.panelUsers.ResumeLayout(false);
             this.panelAvatar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pBox_Avatar)).EndInit();
+            this.panelHeader.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -418,5 +453,7 @@
         private Button btn_New_Role;
         private Button btn_Role;
         private Button btn_Logout;
+        private Button btn_BlackList;
+        private Button btn_Refresh;
     }
 }

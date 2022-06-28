@@ -1,18 +1,30 @@
-﻿
+﻿using System.Data;
+
+
 namespace User_Managment_System.Classes
 {
-    public partial class MySqlDB
+    internal partial class MySqlDB
     {
-        public void WriteSQL(string sql)
+        public void WriteSql(string sql)
         {
-            isLoggedIn = SQLLogin();
-            if (isLoggedIn)
+            try
             {
-                cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = sql;
-                cmd.ExecuteNonQuery();
+                isLoggedIn = SQLLogin();
+                if (isLoggedIn)
+                {
+                    cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = sql;
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
             }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+            
         }
     }
 }

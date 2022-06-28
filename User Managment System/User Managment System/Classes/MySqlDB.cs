@@ -8,25 +8,20 @@ namespace User_Managment_System.Classes
         private MySqlDataReader reader;
         private MySqlCommand cmd;
 
-        string username, password, dataSource, port, databaseName;
+        string dataSource, port, databaseName;
         private bool isLoggedIn;
 
         public bool IsLoggedIn { get => isLoggedIn; set => isLoggedIn = value; }
 
-        public MySqlDB(string _username, string _password, string _dataSource, string _port, string _databaseName)
+        public MySqlDB()
         {
-            username = _username;
-            password = _password;
-            dataSource = _dataSource;
-            port = _port;
-            databaseName = _databaseName;
         }
 
         public bool SQLLogin()
         {
             try
             {
-                string connection = (@$"Data Source = {dataSource}; Port = {port} ; Initial Catalog = {databaseName}; User Id = {username}; Password = {password};");
+                string connection = (@$"Data Source = {Settings.DataSource}; Port = {Settings.Port} ; Initial Catalog = {Settings.DBName}; User Id = {Settings.Username}; Password = {Settings.Password};");
                 con = new MySqlConnection(connection);
                 con.Open();
                 isLoggedIn = true;

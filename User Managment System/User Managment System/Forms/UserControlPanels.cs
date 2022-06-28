@@ -20,13 +20,46 @@ namespace User_Managment_System.Forms
 
         string folder = "Avatars";
 
-        public UserControlPanels(Users _user, List<Databases> _dbList, List<List<Roles>> _roles)
+        int choice;
+
+        public UserControlPanels(Users _user, List<Databases> _dbList, List<List<Roles>> _roles, int n)
         {
             InitializeComponent();
             dbList = _dbList;
             roles = _roles;
             user = _user;
+            Modus(n);
             LoadList();
+            choice = n;
+        }
+
+        private void Modus(int n)
+        {
+            switch(n)
+            {
+                case 0:
+                    btn_Bann.Visible = true;
+                    btn_Bann.Text = "Bann";
+                    break;
+                case 1:
+                    btn_Bann.Visible = true;
+                    btn_Accept.Visible = false;
+                    if(user.Available)
+                    {
+                        btn_Bann.Text = "Bann";
+                    }
+                    else
+                    {
+                        btn_Bann.Text = "UnBann";
+                        btn_Bann.BackColor = Color.Green;
+                    }
+                    break;
+                case 2:
+                    btn_Bann.Visible = true;
+                    btn_Bann.BackColor = Color.Green;
+                    btn_Bann.Text = "UnBann";
+                    break;
+            }
         }
 
         public void LoadList()
@@ -71,7 +104,45 @@ namespace User_Managment_System.Forms
 
         }
 
-        private void btn_Open_Click(object sender, EventArgs e)
+        private void SendChoice()
+        {
+            CloseUserForm();
+            switch (choice)
+            {
+                case 0:
+                    // Send User to Blacklist
+                    new MySqlDB().WriteSql($"call Update_Registration('{user.Email}', {true});");
+                    this.Visible = false;
+                    break;
+                case 1:
+                    // Lock or Unlock the User
+                    if(user.Available)
+                    {
+                        new MySqlDB().WriteSql($"call Bann('{user.Email}',{false});");
+                    }
+                    else
+                    {
+                        new MySqlDB().WriteSql($"call Bann('{user.Email}',{true});");
+                    }
+                    
+                    this.Visible = false;
+                    break;
+                case 2:
+                    // Whitelist User
+                    new MySqlDB().WriteSql($"call Update_Registration('{user.Email}', {false});");
+                    //new MySqlDB().WriteSql($"call Insert_New_User('{user.Email}','{user.Password}', '{user.Firstname}', '{user.Lastname}' , '{user.Information}', '{user.PicPath}', '{user.BirthDate.ToString("yyyy-MM-dd")}',{user.Server},'{roles[0][1].Role_Name}');");
+                    this.Visible = false;
+                    break;
+            }
+        }
+
+        void OpenUserForm()
+        {
+            CloseUserForm();
+            new UserForm(user, dbList, roles).Show();
+            //this.Visible = false;
+        }
+        void CloseUserForm()
         {
             var formCloseRequest = Application.OpenForms.OfType<UserForm>().FirstOrDefault();
 
@@ -80,8 +151,24 @@ namespace User_Managment_System.Forms
                 formCloseRequest.Close();
             }
             formCloseRequest = Application.OpenForms.OfType<UserForm>().FirstOrDefault();
+        }
 
-            new UserForm(user,dbList,roles).Show();
+        
+
+        private void btn_Open_Click(object sender, EventArgs e)
+        {
+            OpenUserForm();
+        }
+
+        private void btn_Choice_Click(object sender, EventArgs e)
+        {
+            SendChoice();   
+        }
+
+        private void btn_Accept_Click(object sender, EventArgs e)
+        {
+            new MySqlDB().WriteSql($"call Insert_New_User('{user.Email}','{user.Password}', '{user.Firstname}', '{user.Lastname}' , '{user.Information}', '{user.PicPath}', '{user.BirthDate.ToString("yyyy-MM-dd")}',{user.Server},'{roles[0][1].Role_Name}');");
+            this.Visible = false;
         }
     }
 }

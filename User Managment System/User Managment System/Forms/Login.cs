@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using User_Managment_System.Classes;
 
 namespace User_Managment_System.Forms
 {
@@ -26,10 +27,13 @@ namespace User_Managment_System.Forms
 
         private bool TryLogin()
         {
-            u = tBox_Username.Text;
+            Settings.Username = tBox_Username.Text;
             //p = Classes.IO.Compute256(tBox_Password.Text);
-            p = tBox_Password.Text;
-            return new Classes.MySqlDB(u, tBox_Password.Text, "localhost", "3306", "UMS2").SQLLogin();
+            Settings.Password = tBox_Password.Text;
+            Settings.DataSource = "localhost";
+            Settings.Port = "3306";
+            Settings.DBName = "UMS2";
+            return new MySqlDB().SQLLogin();
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
@@ -37,9 +41,8 @@ namespace User_Managment_System.Forms
             if(TryLogin())
             {
                 
-                Main mf = new Main(u, p);
-                u = String.Empty;
-                p = String.Empty;
+                Main mf = new Main();
+                
                 ts = new ThreadStart(delegate { mf.ShowDialog(); });
                 th = new Thread(ts);
                 th.SetApartmentState(ApartmentState.STA);

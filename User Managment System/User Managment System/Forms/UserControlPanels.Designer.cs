@@ -46,6 +46,8 @@
             this.tBox_DB = new System.Windows.Forms.TextBox();
             this.tBox_Role = new System.Windows.Forms.TextBox();
             this.tBox_DoB = new System.Windows.Forms.TextBox();
+            this.btn_Bann = new System.Windows.Forms.Button();
+            this.btn_Accept = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pBox_Avatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,15 +163,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 54);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1057, 5);
+            this.panel1.Size = new System.Drawing.Size(1200, 5);
             this.panel1.TabIndex = 17;
             // 
             // btn_Open
             // 
             this.btn_Open.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_Open.Location = new System.Drawing.Point(985, 0);
+            this.btn_Open.Location = new System.Drawing.Point(1139, 0);
             this.btn_Open.Name = "btn_Open";
-            this.btn_Open.Size = new System.Drawing.Size(72, 54);
+            this.btn_Open.Size = new System.Drawing.Size(61, 54);
             this.btn_Open.TabIndex = 18;
             this.btn_Open.Text = "Open";
             this.btn_Open.UseVisualStyleBackColor = true;
@@ -199,10 +201,38 @@
             this.tBox_DoB.Size = new System.Drawing.Size(77, 23);
             this.tBox_DoB.TabIndex = 21;
             // 
+            // btn_Bann
+            // 
+            this.btn_Bann.BackColor = System.Drawing.Color.Red;
+            this.btn_Bann.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_Bann.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Bann.Location = new System.Drawing.Point(1078, 0);
+            this.btn_Bann.Name = "btn_Bann";
+            this.btn_Bann.Size = new System.Drawing.Size(61, 54);
+            this.btn_Bann.TabIndex = 22;
+            this.btn_Bann.Text = "Bann";
+            this.btn_Bann.UseVisualStyleBackColor = false;
+            this.btn_Bann.Click += new System.EventHandler(this.btn_Choice_Click);
+            // 
+            // btn_Accept
+            // 
+            this.btn_Accept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btn_Accept.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_Accept.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Accept.Location = new System.Drawing.Point(1017, 0);
+            this.btn_Accept.Name = "btn_Accept";
+            this.btn_Accept.Size = new System.Drawing.Size(61, 54);
+            this.btn_Accept.TabIndex = 23;
+            this.btn_Accept.Text = "Accept";
+            this.btn_Accept.UseVisualStyleBackColor = false;
+            this.btn_Accept.Click += new System.EventHandler(this.btn_Accept_Click);
+            // 
             // UserControlPanels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_Accept);
+            this.Controls.Add(this.btn_Bann);
             this.Controls.Add(this.tBox_DoB);
             this.Controls.Add(this.tBox_Role);
             this.Controls.Add(this.tBox_DB);
@@ -221,7 +251,7 @@
             this.Controls.Add(this.pBox_Avatar);
             this.Controls.Add(this.panel1);
             this.Name = "UserControlPanels";
-            this.Size = new System.Drawing.Size(1057, 59);
+            this.Size = new System.Drawing.Size(1200, 59);
             ((System.ComponentModel.ISupportInitialize)(this.pBox_Avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -247,5 +277,7 @@
         private TextBox tBox_DB;
         private TextBox tBox_Role;
         private TextBox tBox_DoB;
+        private Button btn_Bann;
+        private Button btn_Accept;
     }
 }
