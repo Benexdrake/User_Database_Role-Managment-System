@@ -18,6 +18,27 @@ namespace User_Managment_System
         public Main()
         {
             InitializeComponent();
+            panelUsers.MaximumSize = new Size(225, 300);
+            panelDatabase.MaximumSize = new Size(225, 240);
+            panelRoles.MaximumSize = new Size(225, 240);
+        }
+
+        private void CompactModus(bool change)
+        {
+            if(change)
+            {
+                panelUsers.MaximumSize = new Size(60, 300);
+                panelDatabase.MaximumSize = new Size(60, 240);
+                panelRoles.MaximumSize = new Size(60, 240);
+                panelSideBar.Size = new Size(60, panelSideBar.Height);
+            }
+            else
+            {
+                panelUsers.MaximumSize = new Size(225, 300);
+                panelDatabase.MaximumSize = new Size(225, 240);
+                panelRoles.MaximumSize = new Size(225, 240);
+                panelSideBar.Size = new Size(225, panelSideBar.Height);
+            }
         }
 
         private void OpenCloseMenu(int n)
@@ -203,6 +224,11 @@ namespace User_Managment_System
                     btn_BlackList_Click(sender, e);
                     break;
             }
+        }
+
+        private void cBox_Compact_CheckedChanged(object sender, EventArgs e)
+        {
+            CompactModus(cBox_Compact.Checked);
         }
     }
 }

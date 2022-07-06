@@ -50,8 +50,9 @@
             this.panelAvatar = new System.Windows.Forms.Panel();
             this.pBox_Avatar = new System.Windows.Forms.PictureBox();
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.panelChild = new System.Windows.Forms.Panel();
+            this.cBox_Compact = new System.Windows.Forms.CheckBox();
             this.btn_Refresh = new System.Windows.Forms.Button();
+            this.panelChild = new System.Windows.Forms.Panel();
             this.panelSideBar.SuspendLayout();
             this.panelRoles.SuspendLayout();
             this.panelDatabase.SuspendLayout();
@@ -101,7 +102,6 @@
             this.panelRoles.Controls.Add(this.btn_Role);
             this.panelRoles.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelRoles.Location = new System.Drawing.Point(0, 310);
-            this.panelRoles.MaximumSize = new System.Drawing.Size(225, 240);
             this.panelRoles.MinimumSize = new System.Drawing.Size(225, 60);
             this.panelRoles.Name = "panelRoles";
             this.panelRoles.Size = new System.Drawing.Size(225, 60);
@@ -182,7 +182,6 @@
             this.panelDatabase.Controls.Add(this.btn_Database);
             this.panelDatabase.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDatabase.Location = new System.Drawing.Point(0, 250);
-            this.panelDatabase.MaximumSize = new System.Drawing.Size(225, 240);
             this.panelDatabase.MinimumSize = new System.Drawing.Size(225, 60);
             this.panelDatabase.Name = "panelDatabase";
             this.panelDatabase.Size = new System.Drawing.Size(225, 60);
@@ -264,7 +263,6 @@
             this.panelUsers.Controls.Add(this.btn_Users);
             this.panelUsers.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUsers.Location = new System.Drawing.Point(0, 190);
-            this.panelUsers.MaximumSize = new System.Drawing.Size(225, 300);
             this.panelUsers.MinimumSize = new System.Drawing.Size(225, 60);
             this.panelUsers.Name = "panelUsers";
             this.panelUsers.Size = new System.Drawing.Size(225, 60);
@@ -380,6 +378,7 @@
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelHeader.Controls.Add(this.cBox_Compact);
             this.panelHeader.Controls.Add(this.btn_Refresh);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(225, 0);
@@ -387,14 +386,16 @@
             this.panelHeader.Size = new System.Drawing.Size(1209, 43);
             this.panelHeader.TabIndex = 1;
             // 
-            // panelChild
+            // cBox_Compact
             // 
-            this.panelChild.AutoScroll = true;
-            this.panelChild.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChild.Location = new System.Drawing.Point(225, 43);
-            this.panelChild.Name = "panelChild";
-            this.panelChild.Size = new System.Drawing.Size(1209, 718);
-            this.panelChild.TabIndex = 2;
+            this.cBox_Compact.AutoSize = true;
+            this.cBox_Compact.Location = new System.Drawing.Point(6, 18);
+            this.cBox_Compact.Name = "cBox_Compact";
+            this.cBox_Compact.Size = new System.Drawing.Size(115, 19);
+            this.cBox_Compact.TabIndex = 1;
+            this.cBox_Compact.Text = "Compact Modus";
+            this.cBox_Compact.UseVisualStyleBackColor = true;
+            this.cBox_Compact.CheckedChanged += new System.EventHandler(this.cBox_Compact_CheckedChanged);
             // 
             // btn_Refresh
             // 
@@ -406,6 +407,15 @@
             this.btn_Refresh.TabIndex = 0;
             this.btn_Refresh.UseVisualStyleBackColor = true;
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
+            // panelChild
+            // 
+            this.panelChild.AutoScroll = true;
+            this.panelChild.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChild.Location = new System.Drawing.Point(225, 43);
+            this.panelChild.Name = "panelChild";
+            this.panelChild.Size = new System.Drawing.Size(1209, 718);
+            this.panelChild.TabIndex = 2;
             // 
             // Main
             // 
@@ -426,6 +436,7 @@
             this.panelAvatar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pBox_Avatar)).EndInit();
             this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -455,5 +466,6 @@
         private Button btn_Logout;
         private Button btn_BlackList;
         private Button btn_Refresh;
+        private CheckBox cBox_Compact;
     }
 }
